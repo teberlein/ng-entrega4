@@ -1,0 +1,27 @@
+<div class="card-content">
+    <div	class="card-img">
+        <img src="../../assets/images/pexels-james-wheeler-417074.jpg" alt="">
+        <span><h4>{{position}}</h4></span>
+    </div>
+    <div class="card-desc">
+        <h3>{{destino.nombre}}</h3>
+        <p>Servicios:</p>
+        <ul>
+            <li *ngFor="let s of destino.servicios">
+                <span [ngSwitch]="s">
+                    <i *ngSwitchCase="'desayuno'" style="color: red;">{{s}}</i>
+                    <i *ngSwitchDefault>{{s}}</i>
+                </span>
+            </li>
+        </ul>
+        <a href="#" class="btn-card" (click)="ir()">Ir!</a>
+        <span *ngIf="destino.selected" ngNonBindable>{{PREFERIDO}}</span>
+        <a [routerLink]="['/destino']">Ver detalle</a>
+        <div>
+            <a href="#" (click)="voteUp()" class="material-icons md-18">thumb_up</a>
+            <a href="#" (click)="voteDown()" class="material-icons md-18">thumb_down</a>
+            <a href="#" (click)="voteReset()" class="material-icons md-18">restart_alt</a>
+            <span>{{destino.votes}}</span>
+        </div>
+    </div>
+</div>
