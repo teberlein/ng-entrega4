@@ -18,6 +18,7 @@ import { DestinoViaje } from './models/destino-viaje.model';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { Observable, flatMap, from } from 'rxjs';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 // app config
 export interface AppConfig {
@@ -132,6 +133,7 @@ export const appConfig: ApplicationConfig = {
           deps: [HttpClient],
         }
       })
-    )
+    ),
+    provideAnimations(),
   ]
 };

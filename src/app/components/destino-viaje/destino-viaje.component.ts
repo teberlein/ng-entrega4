@@ -6,13 +6,31 @@ import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../states/app.state';
 import { VoteDownAction, VoteResetAction, VoteUpAction } from '../../states/destinos-viajes/destinos-viajes.actions';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { BrowserAnimationsModule as Animations, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-destino-viaje',
   standalone: true,
-  imports: [NgFor, NgSwitch, NgSwitchCase, CommonModule, NgIf, RouterLink],
+  imports: [  RouterLink, CommonModule ],
   templateUrl: './destino-viaje.component.html',
-  styleUrl: './destino-viaje.component.css'
+  styleUrls: ['./destino-viaje.component.css'],
+  animations: [
+    trigger('esFavorito', [
+      state('estadoFavorito', style({
+        backgroundColor: 'PaleTurquoise'
+      })),
+      state('estadoNoFavorito', style({
+        backgroundColor: 'WhiteSmoke'
+      })),
+      transition('estadoNoFavorito => estadoFavorito', [
+        animate('3s')
+      ]),
+      transition('estadoFavorito => estadoNoFavorito', [
+        animate('1s')
+      ]),
+    ])
+  ]
 })
 export class DestinoViajeComponent implements OnInit{
 

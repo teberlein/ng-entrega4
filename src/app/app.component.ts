@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { DestinoViajeComponent } from './components/destino-viaje/destino-viaje.component';
 import { ListaDestinosComponent } from './components/lista-destinos/lista-destinos.component';
-import { CommonModule, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DestinoViaje } from './models/destino-viaje.model';
 import { Observable } from 'rxjs';
@@ -10,6 +10,7 @@ import { ReservasModule } from './reservas/reservas.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpLoaderFactory } from './app.config';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,6 @@ import { HttpLoaderFactory } from './app.config';
   imports: [
     RouterOutlet,
     DestinoViajeComponent,
-    CommonModule,
     RouterLink,
     RouterLinkActive,
     FormsModule,
@@ -26,6 +26,7 @@ import { HttpLoaderFactory } from './app.config';
     ReservasModule,
     HttpClientModule,
     TranslateModule,
+    AsyncPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

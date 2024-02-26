@@ -1,4 +1,4 @@
-<div class="card-content">
+<div class="card-content" [@esFavorito]="destino.selected === true ? 'estadoFavorito' : 'estadoNoFavorito'">
     <div	class="card-img">
         <img src="../../assets/images/pexels-james-wheeler-417074.jpg" alt="">
         <span><h4>{{position}}</h4></span>

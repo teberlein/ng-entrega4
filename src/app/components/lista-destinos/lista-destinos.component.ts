@@ -55,12 +55,16 @@ export class ListaDestinosComponent implements OnInit{
     }}));
     this.destinosApiClient.add(d);
     this.onItemAdded.emit(d);
+    this.destinos.forEach(x => x.selected = false);
+    d.selected = true;
     this.destinos.push(d);
     console.log('se ha agregado el destino ' + d.nombre);
   }
 
   elegido(e: DestinoViaje) {
      this.destinosApiClient.elegir(e);
+     this.destinos.forEach(x => x.selected = false);
+     e.selected = true;
      this.store.dispatch(ElegidoFavoritoAction({destino: {
        ...e,
        voteUp: function () {

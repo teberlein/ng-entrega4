@@ -57,8 +57,8 @@ export class DestinosApiClient {
 		return this.destinos.filter(function(d) { return d.id.toString() === id; })[0];
 	  }
 	elegir(d:DestinoViaje) {
-		this.destinos.forEach(x => x.setSelected(false));
-		d.setSelected(true);
+		this.destinos.forEach(x => x.selected = false);
+		d.selected = true;
 		this.current.next(d);
 	}
 	subscribeOnChange(fn: any) {
